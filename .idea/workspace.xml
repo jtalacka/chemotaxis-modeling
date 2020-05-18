@@ -87,6 +87,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.33563218" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -125,9 +126,10 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="14" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="untitled1" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -192,7 +194,9 @@
       <workItem from="1588349344222" duration="3794000" />
       <workItem from="1588430380807" duration="334000" />
       <workItem from="1588590596677" duration="4593000" />
-      <workItem from="1588595419618" duration="12855000" />
+      <workItem from="1588595419618" duration="13560000" />
+      <workItem from="1589806534945" duration="2166000" />
+      <workItem from="1589808761304" duration="6213000" />
     </task>
     <servers />
   </component>

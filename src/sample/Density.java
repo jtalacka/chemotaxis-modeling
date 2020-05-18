@@ -6,18 +6,19 @@ public class Density {
     private Random generator = new Random(10001);
     private double D;
     private double X;
-    private double r;
+    private double alpha;
     private double dx;
     private double dt;
     private int xSize;
+    public static double maxNumber=0;
     private ChemoAttractant ca;
 
     public double[][] u;
-    public Density(int tSize,int xSize,double D,double X,double r,double dx,double dt)
+    public Density(int tSize,int xSize,double D,double X,double alpha,double dx,double dt)
     {   this.xSize=xSize;
         this.D=D;
         this.X=X;
-        this.r=r;
+        this.alpha=alpha;
         this.dx=dx;
         this.dt=dt;
         u=new double[2][xSize];
@@ -29,8 +30,9 @@ public class Density {
 
     public double initialNumberGenerator(){
         double initial;
-        initial=generator.nextDouble();
-        return initial;
+        initial=generator.nextGaussian();
+        if(initial<0){initial=0;}
+        return 1+initial*0.1;
     }
     private void initialNumber()
     {
@@ -44,6 +46,9 @@ public class Density {
         u[t+1][x]*=dt;
         u[t+1][x]+=u[t][x];
       //  u[t+1][x]=u[t][x]+dt*(D*((u[t][getX(x+1)]-2*u[t][x]+u[t][getX(x-1)])*(1/Math.pow(dx,2)))-X*((u[t][getX(x+1)]+u[t][x])*(ca.v[t][getX(+1)]-ca.v[t][x])-((u[t][getX(x-1)]+u[t][x])*(ca.v[t][x]-ca.v[t][getX(x-1)])))/(4*dx)+u[t][x]*(1-u[t][x]));
+    if(maxNumber<u[t+1][x]){
+        maxNumber=u[t+1][x];
+    }
     }
     public double functionU1(int t,int x)
     {
@@ -74,7 +79,7 @@ public class Density {
     {
         double u3;
         u3=1-u[t][x];
-        u3*=u[t][x]*r;
+        u3*=u[t][x]*alpha;
         return u3;
     }
     public int getX(int x){
@@ -84,5 +89,15 @@ public class Density {
             x=xSize-1;
         }
         return x;
+    }
+    public void alphaRandom(){
+        alpha=generator.nextDouble();
+        alpha+=0.5;
+    }
+    public void alphaLinearIncrease(){
+
+    }
+    public void alphaLinearDecrease(){
+
     }
 }

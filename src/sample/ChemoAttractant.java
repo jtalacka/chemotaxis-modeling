@@ -7,6 +7,7 @@ public class ChemoAttractant {
     private double dt;
     private double B;
     private int xSize;
+    public static double maxNumber=0;
 
     public ChemoAttractant(int tSize,int xSize,double dx,double dt,double B)
     {   this.xSize=xSize;
@@ -31,6 +32,9 @@ public class ChemoAttractant {
         v[t+1][x]=functionV1(t,x)+functionV2(t,x)-v[t][x];
         v[t+1][x]*=dt;
         v[t+1][x]+=v[t][x];
+        if(maxNumber<v[t+1][x]){
+            maxNumber=v[t+1][x];
+        }
     }
     public double functionV1(int t,int x)
     {
